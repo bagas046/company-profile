@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CV GYHON PETRA MULIA | Kontraktor Rumah &amp; Gedung</title>
+  <meta name="description" content="CV GYHON PETRA MULIA bergerak di bidang konstruksi bangunan rumah dan gedung.">
+  <meta name="theme-color" content="#1b2430">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CV GYHON PETRA MULIA">
+  <meta property="og:description" content="CV GYHON PETRA MULIA bergerak di bidang konstruksi bangunan rumah dan gedung.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+  <script type="module" src="/src/js/main.js"></script>
+</head>
+<body>
+<a class="skip" href="#home">Lewati ke konten</a>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#home" class="logo"><span class="mark" aria-hidden="true">G</span><span data-c="name"></span></a>
+    <button id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu"><i data-lucide="menu" aria-hidden="true"></i></button>
+    <nav id="menu" aria-label="Navigasi utama">
+      <a href="#home">Beranda</a><a href="#about">Tentang</a><a href="#services">Layanan</a><a href="#portfolio">Proyek</a><a href="#contact">Kontak</a>
+      <a class="btn btn-sm" href="#contact">Konsultasi</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="home" class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" data-c="industry"></p>
+        <h1 data-c="tagline"></h1>
+        <p class="lead" data-c="description"></p>
+        <div class="row"><a class="btn" href="#contact">Konsultasi Sekarang</a><a class="btn ghost light" href="#services">Lihat Layanan</a></div>
+      </div>
+      <svg class="art" viewBox="0 0 420 380" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 340h380" stroke="#ffffff55"/><g stroke="#fff"><rect x="60" y="150" width="120" height="190"/><path d="M60 213h120M60 276h120M100 150v190M140 150v190"/><rect x="210" y="230" width="110" height="110"/><path d="M210 285h110M265 230v110"/></g><g stroke="#f5a300"><path d="M330 340V60M330 60H150M330 60h60M330 60l-60-28M330 60l-20-28M150 60v58"/><rect x="132" y="118" width="36" height="10" fill="#f5a300"/></g></svg>
+    </div>
+  </section>
+
+  <section class="sec soft" id="stats" hidden><div class="wrap grid" id="stats-list"></div></section>
+
+  <section class="sec" id="about">
+    <div class="wrap">
+      <div class="head reveal"><p class="eyebrow">Tentang Kami</p><h2>Mengenal <span data-c="name"></span></h2><p class="lead" data-c="history"></p><p class="note">Berdiri sejak <strong data-c="founded"></strong></p></div>
+      <div class="two">
+        <div class="card reveal"><h3>Visi</h3><p data-c="vision"></p></div>
+        <div class="card reveal"><h3>Misi</h3><ul class="ticks" id="mission-list"></ul></div>
+      </div>
+      <h3 class="sub reveal">Nilai Perusahaan</h3><div class="grid" id="values-list"></div>
+      <h3 class="sub reveal">Mengapa Memilih Kami</h3><div class="grid" id="adv-list"></div>
+    </div>
+  </section>
+
+  <section class="sec soft" id="team" hidden><div class="wrap"><div class="head reveal"><p class="eyebrow">Tim</p><h2>Tim Kami</h2></div><div class="grid" id="team-list"></div></div></section>
+
+  <section class="sec dark" id="services">
+    <div class="wrap"><div class="head reveal"><p class="eyebrow">Layanan</p><h2>Solusi untuk kebutuhan Anda</h2></div><div class="grid" id="services-list"></div></div>
+  </section>
+
+  <section class="sec" id="process"><div class="wrap"><div class="head reveal"><p class="eyebrow">Cara Kerja</p><h2>Alur pengerjaan proyek</h2></div><ol class="steps" id="process-list"></ol></div></section>
+
+  <section class="sec soft" id="portfolio">
+    <div class="wrap">
+      <div class="head reveal"><p class="eyebrow">Proyek</p><h2>Portofolio Kami</h2></div>
+      <div class="chips" id="filters" role="group" aria-label="Filter kategori proyek"></div>
+      <div class="grid" id="projects"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="testi" hidden><div class="wrap"><div class="head reveal"><p class="eyebrow">Testimoni</p><h2>Kata Pelanggan</h2></div><div class="grid" id="testi-list"></div></div></section>
+
+  <section class="cta"><div class="wrap"><h2>Siap memulai proyek bersama kami?</h2><a class="btn" href="#contact">Hubungi Kami</a></div></section>
+
+  <section class="sec" id="contact">
+    <div class="wrap">
+      <div class="head reveal"><p class="eyebrow">Kontak</p><h2>Hubungi Kami</h2></div>
+      <div class="two">
+        <div><ul class="info" id="contact-info"></ul><div id="map" class="map"><p>Peta akan tampil setelah <code>mapEmbedUrl</code> diisi di company.js.</p></div></div>
+        <form id="form" class="card" novalidate>
+          <div class="f"><label for="name">Nama</label><input id="name" name="name" autocomplete="name"><small class="err" id="e-name"></small></div>
+          <div class="f"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"><small class="err" id="e-email"></small></div>
+          <div class="f"><label for="subject">Subjek</label><input id="subject" name="subject"><small class="err" id="e-subject"></small></div>
+          <div class="f"><label for="message">Pesan</label><textarea id="message" name="message" rows="5"></textarea><small class="err" id="e-message"></small></div>
+          <button class="btn" type="submit">Kirim via WhatsApp</button>
+          <p id="form-status" class="status" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap fgrid">
+    <div><a href="#home" class="logo"><span class="mark" aria-hidden="true">G</span><span data-c="name"></span></a><p data-c="description"></p><div class="social" id="social"></div></div>
+    <div><h3>Tautan Cepat</h3><ul><li><a href="#about">Tentang</a></li><li><a href="#services">Layanan</a></li><li><a href="#portfolio">Proyek</a></li><li><a href="#contact">Kontak</a></li></ul></div>
+    <div><h3>Kontak</h3><ul><li data-c="address"></li><li data-c="email"></li><li data-c="phone"></li></ul></div>
+  </div>
+  <p class="copy">© <span id="year"></span> <span data-c="name"></span>. Seluruh hak cipta dilindungi.</p>
+</footer>
+
+<button id="top" type="button" aria-label="Kembali ke atas"><i data-lucide="arrow-up" aria-hidden="true"></i></button>
+<dialog id="modal" aria-label="Detail proyek"><button class="x" type="button" data-close aria-label="Tutup"><i data-lucide="x" aria-hidden="true"></i></button><div class="m-body"></div></dialog>
+</body>
+</html>
