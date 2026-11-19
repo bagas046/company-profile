@@ -24,7 +24,7 @@ Cloudflare Web Analytics gratis, tanpa cookie, dan bisa dipakai di domain mana p
 
 ### Keamanan
 
-Header `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`, dan `Permissions-Policy` aktif lewat `vercel.json` (root dan `company-profile/`). HSTS disediakan otomatis oleh Vercel.
+Header `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`, dan `Permissions-Policy` aktif lewat `company-profile/vercel.json` (file yang dibaca Vercel karena Root directory = `company-profile`). HSTS disediakan otomatis oleh Vercel.
 
 ## Catatan ketentuan Vercel Hobby
 
