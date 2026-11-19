@@ -27,17 +27,27 @@ git remote add origin https://github.com/USERNAME/NAMA-REPO.git
 git push -u origin main
 ```
 
-## Deploy gratis di Vercel
-1. Login ke vercel.com dengan akun GitHub.
-2. **Add New → Project** → pilih repo ini → Import.
-3. Framework terdeteksi **Vite** (Build: `npm run build`, Output: `dist`) → **Deploy**.
-4. Setiap `git push` ke `main` akan otomatis re-deploy. URL HTTPS: `https://nama-proyek.vercel.app`.
+## Deploy gratis di Cloudflare Pages
 
-> **Penting:** paket Vercel Hobby (gratis) diperuntukkan penggunaan pribadi/non-komersial. Untuk website perusahaan, baca ketentuan terbaru Vercel atau gunakan alternatif gratis yang mengizinkan penggunaan komersial seperti Cloudflare Pages, Netlify, atau GitHub Pages (atur `base` di `vite.config.js` bila memakai sub-path).
+Lihat panduan lengkap di **[DEPLOY.md](../DEPLOY.md)** di root repository.
 
-## Yang perlu diganti
-- `src/js/company.js`: semua placeholder `[...]`, nomor WhatsApp (format `628xxxx`), `mapEmbedUrl`, social media, stats/testimoni/tim (isi hanya data asli).
-- `index.html`: `<title>`, meta description, dan Open Graph (ikut diperbarui otomatis oleh JS, tetapi isi statis ini yang dibaca crawler).
-- `public/robots.txt` dan `public/sitemap.xml`: ganti `GANTI-DOMAIN-ANDA.vercel.app`.
-- `public/favicon.svg` dan huruf "N" pada logo di `index.html`.
-- Tambahkan gambar asli (WebP/AVIF, `loading="lazy"`) ke `public/images/` bila diperlukan.
+Ringkasnya:
+- **Root directory**: `company-profile`
+- **Build command**: `npm run build`
+- **Build output directory**: `dist`
+- **Node.js version**: `20`
+- **Environment variables**: boleh kosong. URL SEO otomatis memakai `CF_PAGES_URL` dari Cloudflare.
+
+Setiap `git push` ke `main` otomatis deploy. Cloudflare Pages Free mengizinkan penggunaan komersial; Vercel Hobby tidak (ToS pasal 4).
+
+## Data perusahaan
+
+Semua data ada di `src/js/company.js`. Data yang belum tersedia (email, jam operasional, maps, sosmed, foto proyek) sengaja **disembunyikan otomatis** — jangan diisi placeholder.
+
+Nomor WhatsApp memakai nomor yang sama dengan telepon: `0852 1881 0617` → format `6285218810617` di `company.js`.
+
+## Catatan URL & SEO
+
+Jangan edit manual `robots.txt` / `sitemap.xml` di `public/` — keduanya sudah dihapus dan di-generate otomatis oleh `vite.config.js` saat build, mengikuti `CF_PAGES_URL` (atau `VITE_SITE_URL` bila diisi untuk custom domain).
+
+Header keamanan ada di `public/_headers`.

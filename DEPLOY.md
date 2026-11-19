@@ -1,47 +1,50 @@
-# Panduan Deploy Gratis
+# Panduan Deploy Gratis — Cloudflare Pages
 
-## Rekomendasi: Cloudflare Pages (Free)
+## Kenapa pindah dari Vercel
 
-Vercel Hobby **hanya untuk penggunaan pribadi/non-komersial** (ToS pasal 4), jadi tidak cocok untuk website CV perusahaan. Cloudflare Pages Free tidak membatasi penggunaan komersial dan tetap gratis.
+Vercel Hobby (gratis) hanya untuk penggunaan **pribadi/non-komersial** (ToS pasal 4), jadi tidak cocok untuk website CV perusahaan. Cloudflare Pages Free **gratis dan tidak membatasi penggunaan komersial**.
 
-### Langkah
+Kode sudah disiapkan agar langsung bekerja di Cloudflare Pages. Kode sudah ter-push ke GitHub (`bagas046/company-profile`, branch `main`).
 
-1. Push perubahan ke GitHub.
-2. Buka https://dash.cloudflare.com → **Workers & Pages** → **Create application** → **Pages** → **Connect to Git** → pilih repo `CV PETRA`.
-3. Pengaturan build:
-   - **Project name**: `cv-gyhon-petra-mulia` (atau nama lain)
+## Langkah deploy (perlu akun Cloudflare kamu)
+
+1. Buka https://dash.cloudflare.com → **Workers & Pages** → **Create** → **Pages** → **Connect to Git** → pilih repository **`company-profile`**.
+2. Pengaturan build:
+   - **Project name**: `cv-gyhon-petra-mulia` (atau nama lain yang tersedia)
    - **Production branch**: `main`
-   - **Root directory (advanced)**: `company-profile`
+   - **Root directory** (klik *Advanced*): `company-profile`
    - **Framework preset**: `Vite`
    - **Build command**: `npm run build`
    - **Build output directory**: `dist`
    - **Node.js version**: `20`
-4. Environment variables (Opsional → Environment variables):
-   - `VITE_SITE_URL` = `https://<nama-project>.pages.dev/` → **wajib diganti** setelah tahu URL final
-   - `VITE_CF_WEB_ANALYTICS_TOKEN` = token analytics (lihat bawah), boleh dikosongkan dulu
-5. **Save and Deploy**. Setiap `git push` ke `main` akan otomatis deploy.
+3. **Environment variables** — tidak wajib diisi:
+   - `VITE_SITE_URL` → **kosongkan**. Cloudflare otomatis menyuntik `CF_PAGES_URL`, sehingga canonical/SEO mengikuti URL `*.pages.dev` apa pun nama project-nya.
+   - `VITE_CF_WEB_ANALYTICS_TOKEN` → isi nanti bila sudah membuat Web Analytics.
+4. Klik **Save and Deploy**. Setiap `git push` ke `main` akan otomatis deploy.
 
-### Cara ganti domain tanpa edit kode
+> Catatan: saya tidak bisa membuat project ini karena perlu login akun Cloudflare kamu. Langkah 1–4 di atas yang perlu kamu klik.
 
-Semua URL SEO (canonical, `og:url`, JSON-LD, `robots.txt`, `sitemap.xml`) dibuat dari satu variabel `VITE_SITE_URL`. Cukup ubah env var di dashboard lalu **Redeploy** — tidak perlu menyentuh file lagi.
+## URL otomatis (tanpa edit kode)
 
-### Analytics gratis (tanpa cookie)
+Semua URL SEO — canonical, `og:url`, JSON-LD, `robots.txt`, dan `sitemap.xml` — diambil dari `CF_PAGES_URL` saat build. Jadi:
+- URL `*.pages.dev` otomatis benar.
+- Deploy preview tiap branch juga dapat canonical yang sesuai.
+- Kalau nanti pakai **custom domain**, baru isi `VITE_SITE_URL` di dashboard lalu **Redeploy**.
 
-1. Di Cloudflare dashboard → **Web Analytics** → **Add a site** → masukkan domain `*.pages.dev` → **Add**.
+## Analytics gratis (tanpa cookie)
+
+1. Cloudflare dashboard → **Web Analytics** → **Add a site** → masukkan domain `cv-gyhon-petra-mulia.pages.dev` → **Add**.
 2. Salin **token** yang muncul.
-3. Tempel sebagai `VITE_CF_WEB_ANALYTICS_TOKEN` di Environment variables → Redeploy.
-4. Jika token kosong, script analytics tidak dimuat sama sekali (tidak ada error, tetap gratis).
+3. Masukkan sebagai `VITE_CF_WEB_ANALYTICS_TOKEN` di Environment variables → **Redeploy**.
+4. Kalau token kosong, script analytics **tidak dimuat sama sekali** — tidak ada error, tidak ada biaya.
 
-### Keamanan
+## Keamanan
 
-Header `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`, dan `Permissions-Policy` sudah aktif otomatis lewat:
-- `company-profile/public/_headers` → Cloudflare Pages / Netlify
-- `vercel.json` → Vercel (cadangan)
+Header `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`, dan `Permissions-Policy` aktif otomatis lewat `company-profile/public/_headers`. HSTS disediakan otomatis oleh Cloudflare.
 
-HSTS sudah disediakan otomatis oleh Cloudflare/Vercel.
+## Setelah live
 
-## Catatan
-
-- Setelah website di Cloudflare terverifikasi, project Vercel lama boleh dihapus agar tidak membingungkan.
-- Bila tetap ingin memakai Vercel untuk sementara, perhatikan risiko ketentuan komersial di atas.
-- Format nomor WhatsApp sudah disimpan di `company-profile/src/js/company.js`.
+1. Cek `https://<nama-project>.pages.dev/` — pastikan tampilan dan tombol WhatsApp berfungsi.
+2. Cek `/robots.txt` dan `/sitemap.xml` — URL-nya harus `pages.dev`.
+3. Boleh hapus project Vercel lama agar tidak membingungkan.
+4. Kasih tahu saya URL finalnya supaya saya verifikasi Lighthouse dan konsol browser.
