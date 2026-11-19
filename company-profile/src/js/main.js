@@ -5,6 +5,7 @@ import { initNav } from './navigation.js';
 import { initPortfolio } from './portfolio.js';
 import { initContact } from './contact.js';
 import { initAnalytics } from './analytics.js';
+import { initMetaPixel } from './meta-pixel.js';
 
 const put = (id, html) => { document.getElementById(id).innerHTML = html; };
 const ic = (n) => `<i data-lucide="${n}" aria-hidden="true"></i>`;
@@ -74,4 +75,5 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
 initNav();
 initContact();
 initAnalytics();
+initMetaPixel();
 refreshIcons();

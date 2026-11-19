@@ -11,6 +11,11 @@ export default defineConfig(({ mode }) => {
     'https://company-profile.pages.dev/'
   ).replace(/\/+$/, '');
 
+  const pixelId = env.VITE_META_PIXEL_ID || '';
+  const pixelNoscript = pixelId
+    ? `<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1" alt=""></noscript>`
+    : '';
+
   const robots = `User-agent: *\nAllow: /\nSitemap: ${site}/sitemap.xml\n`;
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${site}/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>\n</urlset>\n`;
 
@@ -19,7 +24,9 @@ export default defineConfig(({ mode }) => {
     plugins: [{
       name: 'seo-files',
       transformIndexHtml(html) {
-        return html.replace(/__SITE_URL__/g, `${site}/`);
+        return html
+          .replace(/__SITE_URL__/g, `${site}/`)
+          .replace(/__META_PIXEL_NOSCRIPT__/g, pixelNoscript);
       },
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
