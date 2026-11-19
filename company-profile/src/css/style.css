@@ -59,6 +59,10 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#c0392b}
 .copy{width:min(1160px,92%);margin:36px auto 0;padding-top:18px;border-top:1px solid #ffffff1f;font-size:.88rem}
 #top{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;border:0;background:var(--a);color:var(--p);cursor:pointer;opacity:0;visibility:hidden;transition:.25s;z-index:40;display:grid;place-items:center}
 #top.show{opacity:1;visibility:visible}
+.wa-float{position:fixed;right:18px;bottom:76px;z-index:41;display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;border-radius:999px;padding:12px 18px;font-weight:600;text-decoration:none;box-shadow:0 8px 24px #0003;transition:.2s}
+.wa-float:hover{background:#1ebe5d;color:#fff;transform:translateY(-2px)}
+.wa-float svg{width:20px;height:20px}
+@media(max-width:860px){.wa-float span{display:none}.wa-float{padding:14px}}
 dialog{border:0;border-radius:var(--r);padding:30px;width:min(520px,92vw);position:relative}dialog::backdrop{background:#1b243099}
 dialog .x{position:absolute;right:12px;top:12px;border:0;background:none;cursor:pointer;width:40px;height:40px}
 .m-body{display:grid;gap:10px}

@@ -4,6 +4,7 @@ import { esc, refreshIcons, waNumber } from './utils.js';
 import { initNav } from './navigation.js';
 import { initPortfolio } from './portfolio.js';
 import { initContact } from './contact.js';
+import { initAnalytics } from './analytics.js';
 
 const put = (id, html) => { document.getElementById(id).innerHTML = html; };
 const ic = (n) => `<i data-lucide="${n}" aria-hidden="true"></i>`;
@@ -41,6 +42,12 @@ show('team', C.team, C.team.map((t) => `<div class="card reveal"><h3>${esc(t.nam
 if (C.projects.length) initPortfolio(); else document.getElementById('portfolio').hidden = true;
 
 const wa = waNumber(C.whatsapp);
+const waFloat = document.getElementById('wa-float');
+if (wa.length >= 8) {
+  waFloat.href = `https://wa.me/${wa}?text=${encodeURIComponent(`Halo ${C.name}, saya ingin konsultasi proyek.`)}`;
+} else {
+  waFloat.hidden = true;
+}
 put('contact-info', [
   ['map-pin', 'Alamat', C.address ? esc(C.address) : ''],
   ['mail', 'Email', C.email ? `<a href="mailto:${esc(C.email)}">${esc(C.email)}</a>` : ''],
@@ -66,4 +73,5 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
 
 initNav();
 initContact();
+initAnalytics();
 refreshIcons();
