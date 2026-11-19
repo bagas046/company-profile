@@ -1,4 +1,4 @@
-:root{--p:#1b2430;--p2:#2b3a4a;--a:#f5a300;--a2:#a86300;--soft:#f5f7fa;--tx:#1d2733;--mu:#5b6877;--bd:#e3e8ef;--r:14px;--f:'Inter',system-ui,sans-serif;--h:'Plus Jakarta Sans',var(--f)}
+:root{--p:#1b2430;--p2:#2b3a4a;--a:#f5a300;--a2:#9c5b00;--soft:#f5f7fa;--tx:#1d2733;--mu:#5b6877;--bd:#e3e8ef;--r:14px;--f:'Inter',system-ui,sans-serif;--h:'Plus Jakarta Sans',var(--f)}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{font:16px/1.65 var(--f);color:var(--tx);background:#fff;overflow-x:hidden}

@@ -3,12 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>CV GYHON PETRA MULIA | Kontraktor Rumah &amp; Gedung</title>
-  <meta name="description" content="CV GYHON PETRA MULIA bergerak di bidang konstruksi bangunan rumah dan gedung.">
+  <title>CV GYHON PETRA MULIA | Kontraktor Rumah &amp; Gedung di Kartasura</title>
+  <meta name="description" content="CV GYHON PETRA MULIA bergerak di bidang konstruksi bangunan rumah dan gedung di Kartasura, Sukoharjo dan sekitarnya.">
   <meta name="theme-color" content="#1b2430">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="CV GYHON PETRA MULIA">
-  <meta property="og:description" content="CV GYHON PETRA MULIA bergerak di bidang konstruksi bangunan rumah dan gedung.">
+  <meta property="og:title" content="CV GYHON PETRA MULIA | Kontraktor Rumah &amp; Gedung di Kartasura">
+  <meta property="og:description" content="CV GYHON PETRA MULIA bergerak di bidang konstruksi bangunan rumah dan gedung di Kartasura, Sukoharjo dan sekitarnya.">
+  <meta property="og:url" content="https://company-profile-cv-gyhon-petra-mulia.vercel.app/">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://company-profile-cv-gyhon-petra-mulia.vercel.app/">
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"GeneralContractor","name":"CV GYHON PETRA MULIA","url":"https://company-profile-cv-gyhon-petra-mulia.vercel.app/","description":"Kontraktor bangunan rumah dan gedung di Kartasura, Sukoharjo dan sekitarnya.","telephone":"+6285218810617","address":{"@type":"PostalAddress","streetAddress":"Mondorakan 05/05, Wirogunan","addressLocality":"Kartasura","addressRegion":"Jawa Tengah","postalCode":"57166","addressCountry":"ID"}}
+  </script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,13 +52,13 @@
 
   <section class="sec" id="about">
     <div class="wrap">
-      <div class="head reveal"><p class="eyebrow">Tentang Kami</p><h2>Mengenal <span data-c="name"></span></h2><p class="lead" data-c="history"></p><p class="note">Berdiri sejak <strong data-c="founded"></strong></p></div>
-      <div class="two">
-        <div class="card reveal"><h3>Visi</h3><p data-c="vision"></p></div>
-        <div class="card reveal"><h3>Misi</h3><ul class="ticks" id="mission-list"></ul></div>
+      <div class="head reveal"><p class="eyebrow">Tentang Kami</p><h2>Mengenal <span data-c="name"></span></h2><p class="lead" data-c="history"></p><p class="note" id="founded-note">Berdiri sejak <strong data-c="founded"></strong></p></div>
+      <div class="two" id="about-details">
+        <div class="card reveal" id="vision-card"><h3>Visi</h3><p data-c="vision"></p></div>
+        <div class="card reveal" id="mission-card"><h3>Misi</h3><ul class="ticks" id="mission-list"></ul></div>
       </div>
-      <h3 class="sub reveal">Nilai Perusahaan</h3><div class="grid" id="values-list"></div>
-      <h3 class="sub reveal">Mengapa Memilih Kami</h3><div class="grid" id="adv-list"></div>
+      <div id="values-block"><h3 class="sub reveal">Nilai Perusahaan</h3><div class="grid" id="values-list"></div></div>
+      <div id="advantages-block"><h3 class="sub reveal">Mengapa Memilih Kami</h3><div class="grid" id="adv-list"></div></div>
     </div>
   </section>
 
@@ -82,10 +88,10 @@
       <div class="two">
         <div><ul class="info" id="contact-info"></ul><div id="map" class="map"><p>Peta akan tampil setelah <code>mapEmbedUrl</code> diisi di company.js.</p></div></div>
         <form id="form" class="card" novalidate>
-          <div class="f"><label for="name">Nama</label><input id="name" name="name" autocomplete="name"><small class="err" id="e-name"></small></div>
-          <div class="f"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"><small class="err" id="e-email"></small></div>
-          <div class="f"><label for="subject">Subjek</label><input id="subject" name="subject"><small class="err" id="e-subject"></small></div>
-          <div class="f"><label for="message">Pesan</label><textarea id="message" name="message" rows="5"></textarea><small class="err" id="e-message"></small></div>
+          <div class="f"><label for="name">Nama</label><input id="name" name="name" autocomplete="name" aria-describedby="e-name"><small class="err" id="e-name"></small></div>
+          <div class="f"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" aria-describedby="e-email"><small class="err" id="e-email"></small></div>
+          <div class="f"><label for="subject">Subjek</label><input id="subject" name="subject" aria-describedby="e-subject"><small class="err" id="e-subject"></small></div>
+          <div class="f"><label for="message">Pesan</label><textarea id="message" name="message" rows="5" aria-describedby="e-message"></textarea><small class="err" id="e-message"></small></div>
           <button class="btn" type="submit">Kirim via WhatsApp</button>
           <p id="form-status" class="status" role="status"></p>
         </form>

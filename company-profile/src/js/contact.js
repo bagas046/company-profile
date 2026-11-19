@@ -17,7 +17,17 @@ export function initContact() {
     const num = waNumber(C.whatsapp);
     if (num.length < 8) { st.textContent = 'Nomor WhatsApp perusahaan belum diisi di src/js/company.js.'; st.className = 'status bad'; return; }
     const text = `Halo ${C.name}, saya ${el('name').value.trim()}.\nEmail: ${el('email').value.trim()}\nSubjek: ${el('subject').value.trim()}\n\n${el('message').value.trim()}`;
-    window.open(`https://wa.me/${num}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-    st.textContent = 'Membuka WhatsApp. Tekan tombol kirim di WhatsApp untuk menyelesaikan.'; st.className = 'status ok'; f.reset();
+    const url = `https://wa.me/${num}?text=${encodeURIComponent(text)}`;
+    const win = window.open(url, '_blank', 'noopener,noreferrer');
+    if (win) {
+      win.opener = null;
+      st.textContent = 'Membuka WhatsApp. Tekan tombol kirim di WhatsApp untuk menyelesaikan.';
+    } else {
+      st.textContent = 'Popup diblokir browser. Klik ';
+      const a = document.createElement('a');
+      a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = 'link WhatsApp ini';
+      st.append(a, ' untuk melanjutkan.');
+    }
+    st.className = 'status ok'; f.reset();
   });
 }
