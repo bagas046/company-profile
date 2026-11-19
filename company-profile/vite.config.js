@@ -3,8 +3,8 @@ import { defineConfig, loadEnv } from 'vite';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), 'VITE_');
 
-  // Cloudflare Pages menyuntik CF_PAGES_URL secara otomatis saat build.
-  // VITE_SITE_URL dipakai hanya bila ingin memaksa domain tertentu (mis. custom domain).
+  // VITE_SITE_URL = domain aktif (prioritas utama, diisi di .env / dashboard).
+  // CF_PAGES_URL = fallback otomatis dari Cloudflare Pages bila VITE_SITE_URL dikosongkan.
   const site = (
     env.VITE_SITE_URL ||
     process.env.CF_PAGES_URL ||

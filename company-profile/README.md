@@ -27,18 +27,15 @@ git remote add origin https://github.com/USERNAME/NAMA-REPO.git
 git push -u origin main
 ```
 
-## Deploy gratis di Cloudflare Pages
+## Deploy
 
 Lihat panduan lengkap di **[DEPLOY.md](../DEPLOY.md)** di root repository.
 
-Ringkasnya:
-- **Root directory**: `company-profile`
-- **Build command**: `npm run build`
-- **Build output directory**: `dist`
-- **Node.js version**: `20`
-- **Environment variables**: boleh kosong. URL SEO otomatis memakai `CF_PAGES_URL` dari Cloudflare.
+**Host aktif: Vercel** (`company-profile-cv-gyhon-petra-mulia.vercel.app`). Setiap `git push` ke `main` otomatis deploy. Root directory di dashboard: `company-profile`; build: `npm run build`; output: `dist`.
 
-Setiap `git push` ke `main` otomatis deploy. Cloudflare Pages Free mengizinkan penggunaan komersial; Vercel Hobby tidak (ToS pasal 4).
+Catatan: paket Vercel Hobby hanya untuk penggunaan pribadi/non-komersial (ToS pasal 4), jadi ada risiko ketentuan untuk website perusahaan. Opsi gratis alternatif yang mengizinkan komersial: Cloudflare Pages — caranya ada di `DEPLOY.md`.
+
+URL SEO dikontrol oleh `VITE_SITE_URL` di `.env`. Sudah diisi dengan URL Vercel; kosongkan hanya kalau pindah ke Cloudflare Pages (akan memakai `CF_PAGES_URL` otomatis).
 
 ## Data perusahaan
 
